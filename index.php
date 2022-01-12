@@ -17,12 +17,12 @@ include_once("inc/head.inc.php");
 include_once("inc/header.inc.php");
 ?>
 
-<main class="text-center mt-5">
+<main class="text-center mt-5 mb-4">
 
-    <h1 class="mb-5">Découvrez nos 5 dernières annonces</h1>
+    <h1 class="mb-5">Découvrez les 5 annonces les plus récentes</h1>
 
     <div class="container-fluid">
-        <div class="row d-flex justify-content-center col-10 mx-auto">
+        <div class="row d-flex justify-content-center col-10 mx-auto mb-2">
             <!-- 2. Je parcoure les 5 annonces -->
             <?php
 
@@ -61,7 +61,6 @@ include_once("inc/header.inc.php");
             ?>
 
             
-
         </div>
 
         <button type="button" class="btn btn-warning"><a href="<?= URL ?>consulter-les-annonces.php">Voir toutes les annonces</a></button>

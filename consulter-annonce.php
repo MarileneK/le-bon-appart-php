@@ -88,17 +88,18 @@ include_once("inc/header.inc.php");
 
     
     <!-- Form to book flat/house-->
-    <!-- 4. J'ajoute le formulaire pour "réservation_message"...-->
-    <!-- 7. ...SEULEMENT SI $reservation_message est null = si personne n'a contacté le proprio de l'annonce -->
+    <!-- 4. J'ajoute le formulaire pour "réservation_message"... -->
+    <!-- 7. ... SEULEMENT SI $reservation_message est null = si personne n'a contacté le proprio de l'annonce = si le logement est encore dispo -->
     <?php 
     if ($detailAdd["reservation_message"] == null) {
     
     ?>
-    <form action="#" method="POST">
+    <form action="#" method="POST" class="mt-5 mb-3">
 
         <label for="reservation_message" class="form-label">Envoyer un message au propriétaire :</label>
 
-        <textarea class="form-control" name="reservation_message" id="reservation_message" cols="15" rows="3" placeholder="Bonjour, je suis très intéressé(e) par votre bien ! J'aimerais le visiter. Voici mes coordonnées."></textarea>
+        <textarea class="form-control mb-2 w-75 mx-auto" name="reservation_message" id="reservation_message" cols="15" rows="3" placeholder="Bonjour, je suis très intéressé(e) par votre bien ! J'aimerais le visiter. Voici mes coordonnées."></textarea>
+
         <input type="submit" value="Je réserve" class="btn btn-primary">
 
     </form>

@@ -83,10 +83,10 @@ include_once("inc/head.inc.php");
 include_once("inc/header.inc.php");
 ?>
 
-<main class="text-center mt-5">
+<main class="text-center mt-5 mb-4">
     <h1 class="text-center mb-5">Ajouter votre annonce</h1>
 
-        <form action="" method="post" class="container w-75 mx-auto">
+        <form action="" method="post" class="container w-50 mx-auto">
 
             <div class="mb-3">
                 <label for="title" class="form-label">Titre de l'annonce</label>
@@ -107,13 +107,15 @@ include_once("inc/header.inc.php");
                 <label for="text" class="form-label">Ville</label>
                 <input type="city" class="form-control" id="city" name="city">
             </div>
-
-            <label for="type">Type d'annonce</label>
-            <select name="type" id="type">
-                <option value="" selected disabled>-- Choisir --</option>
-                <option value="location">Location</option>
-                <option value="vente">Vente</option>
-            </select>
+            
+            <div class="mb-3">
+                <label for="type">Type d'annonce :</label>
+                <select name="type" id="type">
+                    <option value="" selected disabled>-- Choisir --</option>
+                    <option value="location">Location</option>
+                    <option value="vente">Vente</option>
+                </select>
+            </div>
 
             <div class="mb-3">
                 <label for="number" class="form-label">Prix</label>

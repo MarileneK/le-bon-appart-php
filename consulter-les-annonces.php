@@ -17,7 +17,7 @@ include_once("inc/header.inc.php");
     <h1 class="mb-5">Consulter toutes les annonces</h1>
 
     <div class="container-fluid">
-        <div class="row d-flex justify-content-center col-10 mx-auto">
+        <div class="row d-flex justify-content-center col-10 mx-auto mb-2">
             <!-- 2. Je parcoure toutes les annonces -->
             <?php
             foreach($allAdds as $index => $add) {
