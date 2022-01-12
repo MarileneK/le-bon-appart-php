@@ -9,7 +9,7 @@ include_once("inc/functions.inc.php");
 // 1. Je lance ma requête 
 $resultQuery = $bdd->query("SELECT * from advert");
 $allAdds = $resultQuery->fetchAll(PDO::FETCH_ASSOC);
-$addsSorted = rsort($allAdds, SORT_NUMERIC);
+// $addsSorted = rsort($allAdds, SORT_NUMERIC);
 
 // debug($allAdds); // Retourne un tableau dans un tableau
 // debug($allAdds[0]);
@@ -23,13 +23,14 @@ include_once("inc/header.inc.php");
 
 <main class="text-center mt-5">
 
-    <h1>Découvrez les 5 dernières annonces publiées</h1>
+    <h1>Découvrez nos 5 dernières annonces</h1>
 
     <div class="container-fluid">
         <div class="row">
             <!-- 2. Je parcoure toutes les annonces et :
             a. À FAIRE : je dois ranger par ordre du plus récent au plus ancien
-            b. DONE : mettre le titre en maj -->
+            b. DONE : mettre le titre en maj
+            c. À FAIRE : afficher les 5 premières annonces -->
             <?php
             foreach($allAdds as $index => $add) {
             ?>
@@ -40,7 +41,7 @@ include_once("inc/header.inc.php");
                 <div class="card-body">
                     <h5 class="card-title"><?= strtoupper($add["title"]) ?></h5>
                     <p class="card-text"><?= substr($add["description"], 0, 60) ?></p>
-                    <a href="<?= URL ?>consulter-annonce.php?id=<?= $add["id"] ?>" class="btn btn-primary">Voir détails de l'annonce</a>
+                    <a href="<?= URL ?>consulter-annonce.php?id=<?= $add["id"] ?>" class="btn btn-primary">Consulter l'annonce</a>
                 </div>
             </div>
 
@@ -49,6 +50,9 @@ include_once("inc/header.inc.php");
             ?>
 
         </div>
+
+        <button type="button" class="btn btn-warning"><a href="<?= URL ?>consulter-les-annonces.php">Voir toutes les annonces ici.</a></button>
+
     </div>
 
 </main>

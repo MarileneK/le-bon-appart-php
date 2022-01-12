@@ -18,7 +18,7 @@
                     </li>  
 
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="<?= URL ?>consulter-annonce.php">Consulter une annonce</a>
+                        <a class="nav-link active" aria-current="page" href="<?= URL ?>consulter-les-annonces.php">Consulter toutes les annonces</a>
                     </li>  
 
                 </ul>

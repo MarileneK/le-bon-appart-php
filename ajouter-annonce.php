@@ -95,7 +95,7 @@ include_once("inc/header.inc.php");
 
             <div class="mb-3">
                 <label for="description" class="form-label">Description de l'annonce</label>
-                <textarea type="description" class="form-control" id="description" name="description" rows=5 cols=33></textarea>
+                <textarea class="form-control" id="description" name="description" rows=5 cols=33></textarea>
             </div>
 
             <div class="mb-3">
