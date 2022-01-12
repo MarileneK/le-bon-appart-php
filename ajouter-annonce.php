@@ -18,8 +18,8 @@ include_once("inc/functions.inc.php");
 
 // 2. Si $_POST n'est pas vide, ALORS je vais vérifier les valeurs récupérées
 if (!empty($_POST)) {
-    // 2.1. Je stocke les valeurs dans des variables
 
+    // 2.1. Je stocke les valeurs dans des variables
     $title = $_POST["title"];
     $description = $_POST["description"];
     $postal_code = $_POST["postal_code"];

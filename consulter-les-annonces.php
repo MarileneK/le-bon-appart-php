@@ -17,32 +17,30 @@ include_once("inc/header.inc.php");
     <h1 class="mb-5">Consulter toutes les annonces</h1>
 
     <div class="container-fluid">
-        <div class="row">
-            <!-- 2. Je parcoure toutes les annonces et :
-            a. DONE : mettre le titre en maj
-            b. DONE : afficher un badge si le bien est réservé -->
+        <div class="row d-flex justify-content-center col-10 mx-auto">
+            <!-- 2. Je parcoure toutes les annonces -->
             <?php
             foreach($allAdds as $index => $add) {
             ?>
                     
-            <div class="card" style="width: 18rem;">
-                <img src="<?= URL ?>assets/images/appartement.jpeg" class="card-img-top" alt="Photo de l'appartement">
+            <div class="card m-3" style="width: 18rem;">
+                <a href="<?= URL ?>consulter-annonce.php?id=<?= $add["id"] ?>"><img src="<?= URL ?>assets/images/appartement.jpeg" class="card-img-top" alt="Photo de l'appartement"></a>
 
                 <div class="card-body">
                     <h5 class="card-title"><?= strtoupper($add["title"]) ?></h5>
                     <p class="card-text"><?= substr($add["description"], 0, 60) ?></p>
 
-                    <!-- b. Affiche le badge si le bien est réservé, sinon dispo -->
+                    <!-- 3. Affiche le badge si le bien est réservé (SI $reservation_message est !empty), sinon dispo -->
                     <?php 
                     if ($add["reservation_message"] != null) {
                     ?>
                     
-                        <span class="badge bg-success">Réservé</span>
+                        <span class="badge bg-success mb-3">Réservé</span>
                     
                     <?php
                     } else {
                     ?>
-                        <span class="badge bg-warning">Disponible</span>
+                        <span class="badge bg-warning mb-3">Disponible</span>
                     <?php
                     }
                     ?>

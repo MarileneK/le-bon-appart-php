@@ -48,8 +48,6 @@ if (isset($_POST) && !empty($_POST)) {
     }
 }
 
-// 6. Si $reservation_message est !empty, je veux qu'il affiche un badge
-
 include_once("inc/head.inc.php");
 include_once("inc/header.inc.php");
 ?>
@@ -60,7 +58,8 @@ include_once("inc/header.inc.php");
     <!-- Card details -->
     <div class="card mb-3">
         <img class="card-img-top" src="<?= URL ?>assets/images/appartement.jpeg" alt="Card image cap">
-            <div class="card-body">
+
+            <div class="card-body col-8 mx-auto">
                 <h5 class="card-title"><?= strtoupper($detailAdd["title"]) ?></h5>
                 <p class="card-text"><?= $detailAdd["description"] ?></p>
                 <p class="card-text"><?= $detailAdd["postal_code"] ?> <?= $detailAdd["city"] ?></p>
@@ -68,6 +67,7 @@ include_once("inc/header.inc.php");
                 <p class="card-text">Prix : <?= $detailAdd["price"] ?> €</p>
                 <p class="card-text"><small class="text-muted">Référence de l'annonce : <?= $detailAdd["id"] ?></small></p>
 
+                <!-- 6. Affiche le badge si le bien est réservé (SI $reservation_message est !empty), sinon dispo -->
                 <?php 
                 if ($detailAdd["reservation_message"] != null) {
                 ?>
@@ -82,20 +82,30 @@ include_once("inc/header.inc.php");
                 }
                 ?>
                 
-                
             </div>
         </div>
     </div>
 
-    <!-- 4. J'ajoute le formulaire pour "réservation_message" -->
+    
     <!-- Form to book flat/house-->
+    <!-- 4. J'ajoute le formulaire pour "réservation_message"...-->
+    <!-- 7. ...SEULEMENT SI $reservation_message est null = si personne n'a contacté le proprio de l'annonce -->
+    <?php 
+    if ($detailAdd["reservation_message"] == null) {
+    
+    ?>
     <form action="#" method="POST">
-        <label for="reservation_message" class="form-label">Envoyer un message au propriétaire :</label>
-        <textarea class="form-control" name="reservation_message" id="reservation_message" cols="30" rows="5" placeholder="Bonjour, je suis très intéressé(e) par votre bien ! J'aimerais le visiter. Voici mes coordonnées."></textarea>
-        <input type="submit" value="Je réserve" class="btn btn-primary">
-    </form>
-</main>
 
+        <label for="reservation_message" class="form-label">Envoyer un message au propriétaire :</label>
+
+        <textarea class="form-control" name="reservation_message" id="reservation_message" cols="15" rows="3" placeholder="Bonjour, je suis très intéressé(e) par votre bien ! J'aimerais le visiter. Voici mes coordonnées."></textarea>
+        <input type="submit" value="Je réserve" class="btn btn-primary">
+
+    </form>
+    <?php
+    }
+    ?>
+</main>
 
 
 <?php
