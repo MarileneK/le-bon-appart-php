@@ -6,15 +6,11 @@ include_once("inc/functions.inc.php");
 
 // debug($_SERVER);
 
-// 1. Je lance ma requête 
-$resultQuery = $bdd->query("SELECT * from advert");
+// 1. Je lance ma requête que je trie par ordre décroissant
+$resultQuery = $bdd->query("SELECT * FROM advert ORDER by id DESC");
 $allAdds = $resultQuery->fetchAll(PDO::FETCH_ASSOC);
-// $addsSorted = rsort($allAdds, SORT_NUMERIC);
 
 // debug($allAdds); // Retourne un tableau dans un tableau
-// debug($allAdds[0]);
-// debug($addsSorted);
-// echo $addsSorted;
 
 
 include_once("inc/head.inc.php");
@@ -23,35 +19,37 @@ include_once("inc/header.inc.php");
 
 <main class="text-center mt-5">
 
-    <h1>Découvrez nos 5 dernières annonces</h1>
+    <h1 class="mb-5">Découvrez nos 5 dernières annonces</h1>
 
     <div class="container-fluid">
         <div class="row">
-            <!-- 2. Je parcoure toutes les annonces et :
-            a. À FAIRE : je dois ranger par ordre du plus récent au plus ancien
-            b. DONE : mettre le titre en maj
-            c. À FAIRE : afficher les 5 premières annonces -->
+            <!-- 2. Je parcoure les 5 annonces -->
             <?php
-            foreach($allAdds as $index => $add) {
+
+            $arrayLength = 5;
+
+            for($x = 0; $x < $arrayLength; $x++) {
             ?>
-                    
-            <div class="card" style="width: 18rem;">
+
+                <div class="card" style="width: 18rem;">
                 <img src="<?= URL ?>assets/images/appartement.jpeg" class="card-img-top" alt="Photo de l'appartement">
 
                 <div class="card-body">
-                    <h5 class="card-title"><?= strtoupper($add["title"]) ?></h5>
-                    <p class="card-text"><?= substr($add["description"], 0, 60) ?></p>
-                    <a href="<?= URL ?>consulter-annonce.php?id=<?= $add["id"] ?>" class="btn btn-primary">Consulter l'annonce</a>
+                    <h5 class="card-title"><?= strtoupper($allAdds[$x]["title"]) ?></h5>
+                    <p class="card-text"><?= substr($allAdds[$x]["description"], 0, 60) ?></p>
+                    <a href="<?= URL ?>consulter-annonce.php?id=<?= $allAdds[$x]["id"] ?>" class="btn btn-primary">Consulter l'annonce</a>
                 </div>
-            </div>
+            </div>        
 
             <?php
             }
             ?>
 
+            
+
         </div>
 
-        <button type="button" class="btn btn-warning"><a href="<?= URL ?>consulter-les-annonces.php">Voir toutes les annonces ici.</a></button>
+        <button type="button" class="btn btn-warning"><a href="<?= URL ?>consulter-les-annonces.php">Voir toutes les annonces</a></button>
 
     </div>
 

@@ -14,7 +14,7 @@ include_once("inc/header.inc.php");
 ?>
 
 <main class="text-center mt-5">
-    <h1>Consulter toutes les annonces</h1>
+    <h1 class="mb-5">Consulter toutes les annonces</h1>
 
     <div class="container-fluid">
         <div class="row">

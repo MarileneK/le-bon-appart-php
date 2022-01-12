@@ -55,7 +55,7 @@ include_once("inc/header.inc.php");
 ?>
 
 <main class="text-center mt-5">
-    <h1>Détails de l'annonce</h1>
+    <h1 class="mb-5">Détails de l'annonce</h1>
 
     <!-- Card details -->
     <div class="card mb-3">
